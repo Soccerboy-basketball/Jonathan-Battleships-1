@@ -7,6 +7,7 @@ body {
   }
   
   .scrolling-box {
+    border-style: solid;
     background-color: #eaeaea;
     display: block;
     width: 200px;
@@ -15,6 +16,21 @@ body {
     overflow-y: scroll;
     text-align: center;
   }
+
+  #input_row{
+    columns: 2;
+  }
+
+  #input_field{
+    width: 30px;
+    margin-left: 25px;
+  }
+
+  /* #input_column:after {
+    content: "";
+    display: table;
+    clear: both;
+  } */
   
   output_line {
     display: flex;
