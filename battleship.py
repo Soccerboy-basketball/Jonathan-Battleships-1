@@ -1,15 +1,4 @@
-
-from flask import render_template
-from flask import Flask 
-
-import  random
-
-app = Flask(__name__)
-
-@app.route("/")
-def hello():
-    return render_template('index.html')
-
+import random
 
 #Board for holding ship locations
 HIDDEN_BOARD = [[" "] * 8 for x in range(8)]
