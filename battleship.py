@@ -31,11 +31,14 @@ letters_to_numbers = {
 
 #computer create 5 ships
 def create_ships(board):
+    print("This is running.")
     for ship in range(5):
         ship_row, ship_column = random.randint(0, 7), random.randint(0, 7)
-        while board[ship_row][ship_column] == "X":
-            ship_row, ship_column = get_ship_location()
+        # while board[ship_row][ship_column] == "X":
+        #     print("It never gets in here.")
+        #     ship_row, ship_column = get_ship_location()
         board[ship_row][ship_column] = "X"
+        print("End of 'create_ships()' function")
 
 
 def get_ship_location():
@@ -60,26 +63,25 @@ def count_hit_ships(board):
     return count
 
 
-if __name__ == "__main__":
-    create_ships(HIDDEN_BOARD)
-    turns = 10
-    while turns > 0:
-        print('Guess a battleship location')
-        print_board(GUESS_BOARD)
-        row, column = get_ship_location()
-        if GUESS_BOARD[row][column] == "-":
-            print("You guessed that one already.")
-        elif HIDDEN_BOARD[row][column] == "X":
-            print("Hit")
-            GUESS_BOARD[row][column] = "X"
-            turns -= 1
-        else:
-            print("MISS!")
-            GUESS_BOARD[row][column] = "-"
-            turns -= 1
-        if count_hit_ships(GUESS_BOARD) == 5:
-            print("You win!")
-            break
-        print("You have " + str(turns) + " turns left")
-        if turns == 0:
-            print("You ran out of turns")
+create_ships(HIDDEN_BOARD)
+turns = 10
+while turns > 0:
+    print('Guess a battleship location')
+    print_board(GUESS_BOARD)
+    row, column = get_ship_location()
+    if GUESS_BOARD[row][column] == "-":
+        print("You guessed that one already.")
+    elif HIDDEN_BOARD[row][column] == "X":
+        print("Hit")
+        GUESS_BOARD[row][column] = "X"
+        turns -= 1
+    else:
+        print("MISS!")
+        GUESS_BOARD[row][column] = "-"
+        turns -= 1
+    if count_hit_ships(GUESS_BOARD) == 5:
+        print("You win!")
+        break
+    print("You have " + str(turns) + " turns left")
+    if turns == 0:
+        print("You ran out of turns")
