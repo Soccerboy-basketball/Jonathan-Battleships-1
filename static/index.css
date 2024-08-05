@@ -9,6 +9,7 @@ body {
   }
   
   .scrolling-box {
+    font-family: monospace;
     border-style: solid;
     background-color: #eaeaea;
     display: block;
